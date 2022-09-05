@@ -39,11 +39,15 @@ def factorize(*number):
 
 
 if __name__ == '__main__':
-    print(f'Count CPU: {cpu_count()}')
-    timer = time()
-    factorize(128, 255, 99999, 10651060)
-    time_delta = time() - timer
-    print(f'Program worked for {round(time_delta, 4)} sec')
+    time_array = []
+    # print(f'Count CPU: {cpu_count()}')
+    for _ in range(1000):
+        timer = time()
+        factorize(128, 255, 99999, 10651060)
+        time_delta = time() - timer
+        time_array.append(time_delta)
+    # print(f'Program worked for {round(time_delta, 4)} sec')
+    print(sum(time_array) / 1000)
 
 # Program worked for 1.8216 sec
 # Program worked for 1.5766 sec
